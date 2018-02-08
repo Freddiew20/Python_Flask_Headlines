@@ -1,0 +1,28 @@
+<html>
+ <head>
+  <title>Headlines</title>
+ </head>
+ <body>
+  <h1>Headlines</h1>
+  <h2>BBC Headlines</h2>
+  {%for article in articles%}
+    {%if loop.index <=5%}
+      <b><a href="{{article.link}}">{{article.title}}</a></b><br />
+      <i>{{article.published}}</i><br />
+      <p>{{article.summary}}</p>
+--------------------------------------------------------------------------------------------------------------------------------<br>
+  {%endif%}
+  {%endfor%}
+
+    <h2>CNN Headlines</h2>
+  {%for article in artic%}
+    {%if loop.index <=5%}
+      <b><a href="{{article.link}}">{{article.title}}</a></b><br />
+      <i>{{article.published}}</i><br />
+      <p>{{article.summary}}</p>
+--------------------------------------------------------------------------------------------------------------------------------<br>
+  {%endif%}
+  {%endfor%}
+ </body>
+</html>
+
