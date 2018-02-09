@@ -5,7 +5,7 @@
  <body>
   <h1>Headlines</h1>
   <h2>BBC Headlines</h2>
-  {%for article in articles%}
+  {%for article in bbc%}
     {%if loop.index <=5%}
       <b><a href="{{article.link}}">{{article.title}}</a></b><br />
       <i>{{article.published}}</i><br />
@@ -15,7 +15,27 @@
   {%endfor%}
 
     <h2>CNN Headlines</h2>
-  {%for article in artic%}
+  {%for article in cnn%}
+    {%if loop.index <=5%}
+      <b><a href="{{article.link}}">{{article.title}}</a></b><br />
+      <i>{{article.published}}</i><br />
+      <p>{{article.summary}}</p>
+--------------------------------------------------------------------------------------------------------------------------------<br>
+  {%endif%}
+  {%endfor%}
+
+      <h2>FOX Headlines</h2>
+  {%for article in fox%}
+    {%if loop.index <=5%}
+      <b><a href="{{article.link}}">{{article.title}}</a></b><br />
+      <i>{{article.published}}</i><br />
+      <p>{{article.summary}}</p>
+--------------------------------------------------------------------------------------------------------------------------------<br>
+  {%endif%}
+  {%endfor%}
+
+      <h2>IOL Headlines</h2>
+  {%for article in iol%}
     {%if loop.index <=5%}
       <b><a href="{{article.link}}">{{article.title}}</a></b><br />
       <i>{{article.published}}</i><br />
