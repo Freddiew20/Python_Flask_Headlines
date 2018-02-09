@@ -18,12 +18,14 @@ IOL_FEED = "http://www.iol.co.za/cmlink/1.640"
 @app.route("/")
 def get_news():
   feed = feedparser.parse(BBC_FEED)
-  return render_template("home.html", articles=feed['entries'])
+  feedn = feedparser.parse(CNN_FEED)
+  feedf = feedparser.parse(FOX_FEED)
+  feedi = feedparser.parse(IOL_FEED)
+  return render_template("home.html", bbc=feed['entries'], cnn=feedn['entries'], fox=feedf['entries'], iol=feedi['entries'])
+  #feed = feedparser.parse(CNN_FEED)
+  #return render_template("home.html", ceene=feed['entries'])
 
   
-def get_new():
-  feed = feedparser.parse(CNN_FEED)
-  return render_template("home.html", artic=feed['entries'])
 
 
 
