@@ -1,12 +1,6 @@
 from flask import Flask
 import feedparser
 from flask import render_template
-from flask import request
-from flask import make_response
-import json
-import urllib
-import urllib2
-import datetime
 
 app= Flask(__name__)
 
@@ -22,47 +16,6 @@ def get_news():
   feedf = feedparser.parse(FOX_FEED)
   feedi = feedparser.parse(IOL_FEED)
   return render_template("home.html", bbc=feed['entries'], cnn=feedn['entries'], fox=feedf['entries'], iol=feedi['entries'])
-  #feed = feedparser.parse(CNN_FEED)
-  #return render_template("home.html", ceene=feed['entries'])
-
-  
-
-
-
-#DEFAULTS = {
- #            'publication' : 'bbc',
- #          }
-#RSS_FEEDS = {'bbc':'http://feeds.bbci.co.uk/news/rss.xml',
-#             'cnn':'http://rss.cnn.com/rss/edition.rss',
-#             'fox':'http://feeds.foxnews.com/foxnews/latest',
-#             'iol':'http://www.iol.co.za/cmlink/1.640'}
-
-#
-#@app.route("/")
-#def home():
-#  publication = get_value_with_fallback('publication')
-#  articles=get_news(publication)
-
-#  response = make_response(render_template("home.html", articles=articles))
-#  expires = datetime.datetime.now() + datetime.timedelta(days=365)
-#  response.set_cookie("publication",publication,expires=expires)
-#  return response
-
-#def get_news(query):
-#  if not query or query.lower() not in RSS_FEEDS:
-#    query = DEFAULTS['publication']
-#  else:
-#  publication =  query.lower()
-#  feed = feedparser.parse(RSS_FEEDS[publication])
-#  return feed['entries']
-
-
-#def get_value_with_fallback(key):
-#  if request.args.get(key):
-#    return request.args.get(key)
-#  if request.cookies.get(key):
-#    return request.cookies.get(key)
-#  return DEFAULTS[key]
 
 if __name__ == '__main__':
   app.run(port=5300,debug=True)
